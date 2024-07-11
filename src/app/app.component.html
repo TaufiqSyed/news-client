@@ -110,20 +110,31 @@
         </button>
       </div>
       <div class="news-articles" >
-        <button class="grid-item" *ngFor="let article of newsArticles">
+        <a class="grid-item" href={{article.url}} target="_blank" *ngFor="let article of newsArticles">
           <!-- <div class="news-image-preview" [ngStyle]="{background: 'url(' + article.urlToImage + ')'}"> -->
             <img alt="" src={{article.urlToImage}} class="cover"/>
             <div class="article-text">
               <h4>{{article.title.slice(0, 65) + (article.title.length > 65 ? '...' : '')}}</h4>
-              <p>{{article.author}} - {{article.publishedAt.toString().substring(0, 10)}}</p>
-              <p>{{article.description.slice(0, 75) + (article.description.length > 75 ? '...' : '')}}</p>
+              <p>{{(article.author ?? 'Anonymous').substring(0, 20)}} - {{article.publishedAt.toString().substring(0, 10)}}</p>
+              <p>{{article.description.slice(0, 65) + (article.description.length > 65 ? '...' : '')}}</p>
 
             </div>
           <!-- </div> -->
           <!-- <p>{{article.title}}</p> -->
-        </button>
+        </a>
       </div>
-      <div class="pagination"></div>
+      <div class="pagination-container">
+        <div class="pagination">
+          <!-- <a href="#">&laquo;</a> -->
+          <a [routerLink]="['/']" [queryParams]="{ page: 1 }">1</a>
+          <a [routerLink]="['/']" [queryParams]="{ page: 2 }">2</a>
+          <a [routerLink]="['/']" [queryParams]="{ page: 3 }">3</a>
+          <a [routerLink]="['/']" [queryParams]="{ page: 4 }">4</a>
+          <a [routerLink]="['/']" [queryParams]="{ page: 5 }">5</a>
+          <a [routerLink]="['/']" [queryParams]="{ page: 6 }">6</a>
+          <!-- <a href="#">&raquo;</a> -->
+        </div>
+      </div>
     </div>
   </div>
 </main>
