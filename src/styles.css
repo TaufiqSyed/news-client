@@ -24,10 +24,36 @@
     --blue-800: hsl(225.9 70.7% 40.2%);
     --blue-900: hsl(224.4 64.3% 32.9%);
     --blue-950: hsl(226.2 57% 21%);
+
+      /* Zinc */
+    --zinc-50: hsl(0 0% 98%);
+    --zinc-100: hsl(240 4.8% 95.9%);
+    --zinc-200: hsl(240 5.9% 90%);
+    --zinc-300: hsl(240 4.9% 83.9%);
+    --zinc-400: hsl(240 5% 64.9%);
+    --zinc-500: hsl(240 3.8% 46.1%);
+    --zinc-600: hsl(240 5.2% 33.9%);
+    --zinc-700: hsl(240 5.3% 26.1%);
+    --zinc-800: hsl(240 3.7% 15.9%);
+    --zinc-900: hsl(240 5.9% 10%);
+    --zinc-950: hsl(240 10% 3.9%);
+
+    /* Neutral */
+    --neutral-50: hsl(0 0% 98%);
+    --neutral-100: hsl(0 0% 96.1%);
+    --neutral-200: hsl(0 0% 89.8%);
+    --neutral-300: hsl(0 0% 83.1%);
+    --neutral-400: hsl(0 0% 63.9%);
+    --neutral-500: hsl(0 0% 45.1%);
+    --neutral-600: hsl(0 0% 32.2%);
+    --neutral-700: hsl(0 0% 25.1%);
+    --neutral-800: hsl(0 0% 14.9%);
+    --neutral-900: hsl(0 0% 9%);
+    --neutral-950: hsl(0 0% 3.9%);
+
+    --shadowColor: 0px 10px 50px 0px rgba(var(--color), 0.08);
 }
 body {
-    background-color: var(--slate-950);
-}
-h1 {
-    font-size: 64px;
+    background-color: var(--slate-100);
+    color: var(--slate-800);
 }

@@ -1,24 +1,13 @@
 :host {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    /* font-family: 'Times New Roman', Times, serif; */
+     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
+      "Segoe UI Symbol"; 
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-
-  h1 {
-    font-size: 64px;
-    color: var(--blue-200);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
 
   p {
     margin: 0;
@@ -39,9 +28,11 @@
 
   .content {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+
+    /* justify-content: space-around; */
     width: 100%;
-    max-width: 700px;
+    max-width: 1200px;
     margin-bottom: 3rem;
   }
 
@@ -53,9 +44,79 @@
     margin-top: 1.5rem;
   }
 
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar {
+    background-color: rgba(fff,fff,fff,0.5);
+  }
+
+  .news-company-title {
+    width: 100%;
+    text-align: center;
+  }
+  .news-company-title h1 {
+      font-weight: 700;
+      font-size: 42px;
+  }
+
+  .left-side {
+    height: 60vh;
+    /* margin: 30px 40px; */
+    padding: 30px 40px;
+    background-color: var(--slate-50);
+    border: solid 1px var(--neutral-400);
+    -webkit-box-shadow: var(--shadowColor);
+    box-shadow: var(--shadowColor);
+    border-radius: 8px;
+    /* flex: 2; */
+    width: 200px;
+    margin: 0 15px;
+    /* flex-grow: 1; */
+  }
+
+  .right-side {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    /* margin: 30px 40px; */
+    padding: 30px 40px;
+    background-color: var(--slate-700);
+    flex: 4;
+    margin: 0 15px;
+    /* flex-grow : 1; */
+  }
+
+  .search-bar {
+    background-color: var(--slate-300);
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+  }
+
+  .news-articles {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 15px;
+    row-gap: 5px;
+  }
+
+  .grid-item {
+    width: 100%;
+    display: inline-flexbox;
+    background-color: #ff0000;
+    height: 100px;
+    /* max-width: 100px; */
+  }
+  
   @media screen and (max-width: 650px) {
     .content {
       flex-direction: column;
       width: max-content;
     }
   }
+  

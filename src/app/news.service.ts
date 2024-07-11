@@ -10,7 +10,7 @@ export class NewsArticleService {
   async getNews() {
     console.log('making an attempt...');
     const x = await lastValueFrom(
-      this.http.get('http://localhost:8000/api/v1/news?q=Russia/')
+      this.http.get('http://localhost:8000/api/v1/  news?q=Russia/')
     );
     console.log(x);
     return x;
