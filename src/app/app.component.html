@@ -109,8 +109,19 @@
           Search
         </button>
       </div>
-      <div class="news-articles" *ngFor="let article of newsArticles">
-        <button class="grid-item"><p>{{article.title}}</p></button>
+      <div class="news-articles" >
+        <button class="grid-item" *ngFor="let article of newsArticles">
+          <!-- <div class="news-image-preview" [ngStyle]="{background: 'url(' + article.urlToImage + ')'}"> -->
+            <img alt="" src={{article.urlToImage}} class="cover"/>
+            <div class="article-text">
+              <h4>{{article.title.slice(0, 65) + (article.title.length > 65 ? '...' : '')}}</h4>
+              <p>{{article.author}} - {{article.publishedAt.toString().substring(0, 10)}}</p>
+              <p>{{article.description.slice(0, 75) + (article.description.length > 75 ? '...' : '')}}</p>
+
+            </div>
+          <!-- </div> -->
+          <!-- <p>{{article.title}}</p> -->
+        </button>
       </div>
       <div class="pagination"></div>
     </div>
