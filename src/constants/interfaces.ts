@@ -7,3 +7,8 @@ export interface INewsArticle {
   content: string;
   publishedAt: Date;
 }
+
+export interface IOption {
+  id: string;
+  name: string;
+}
