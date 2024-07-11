@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   ActivatedRoute,
+  Event,
   ParamMap,
   RouterModule,
   RouterOutlet,
@@ -27,6 +28,8 @@ export class AppComponent implements OnInit {
   category$: string | undefined;
   newsArticles: INewsArticle[] = [];
 
+  queryString: string = '';
+
   countrySelect: any;
   countryOptions: IOption[] = countries.map((e) => ({ name: e, id: e }));
 
@@ -43,14 +46,35 @@ export class AppComponent implements OnInit {
     });
   }
 
+  fetchData() {
+    this.newsArticleService
+      .getNews({
+        query: this.queryString,
+        country: this.countrySelect.id,
+        category: this.categorySelect.id,
+        page: this.page$,
+        pageSize: 9,
+      })
+      .then((e) => {
+        this.newsArticles = e;
+      });
+  }
+
+  handlePageChange(e: MouseEvent) {
+    const s = (e.target as Element).id;
+    const newPage = s.charAt(s.length - 1);
+    this.page$ = parseInt(newPage);
+    this.fetchData();
+  }
+
+  handleSearch(e: MouseEvent) {
+    this.fetchData();
+  }
+
   ngOnInit(): void {
-    this.countrySelect = ' ';
+    this.countrySelect = { name: 'us', id: 'us' };
     this.categorySelect = ' ';
-    this.newsArticleService.getNews().then((e) => {
-      this.newsArticles = e;
-    });
-    // this.categorySelect = { name: 'health', id: 'health' };
-    // const foo = new NewsArticleService();
+    this.fetchData();
   }
 
   title = 'client';

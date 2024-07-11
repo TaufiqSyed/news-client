@@ -132,6 +132,8 @@
 
   .search-filter select {
     background: rgba(0,0,0,0);
+    cursor: pointer;
+
     border: none;
     padding: 0 3px;
     height: 100%;
@@ -184,6 +186,7 @@
   } */
 
   .search-btn {
+    cursor: pointer;
     height: 100%;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
@@ -286,6 +289,7 @@
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+    cursor: pointer;
   }
 
   @media screen and (max-width: 650px) {

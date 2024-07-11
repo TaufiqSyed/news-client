@@ -21,13 +21,14 @@
       <div class="search-bar">
         <div class="query-search">
           <span class="material-icons-outlined">search</span>
-          <input type="text" type="text" placeholder="Search...">
+          <input type="text" type="text" placeholder="Search..." [(ngModel)]='queryString'>
         </div>
         <div class="country-search search-filter">
           <select name="country-select" id="country-select" [(ngModel)]='countrySelect'>
             <option value=" ">Global</option>
             <option *ngFor="let option of countryOptions" 
-            [ngValue]="option">
+            [ngValue]="option"
+            >
             {{option.name}}
             </option>
           </select>
@@ -41,7 +42,7 @@
             </option>
           </select>
         </div>
-        <div class="source-search search-filter">
+        <!-- <div class="source-search search-filter">
           <select name="source-select" id="source-select">
             <option value=" ">All Sources</option>
             <option value='business'>business</option>
@@ -52,19 +53,19 @@
             <option value='sports'>sports</option>
             <option value='technology'>technology</option>
           </select>
-        </div>
-        <button class="search-btn">
+        </div> -->
+        <button class="search-btn" (click)="handleSearch($event)">
           Search
         </button>
       </div>
       <div class="news-articles" >
         <a class="grid-item" href={{article.url}} target="_blank" *ngFor="let article of newsArticles">
           <!-- <div class="news-image-preview" [ngStyle]="{background: 'url(' + article.urlToImage + ')'}"> -->
-            <img alt="" src={{article.urlToImage}} class="cover"/>
+            <img alt="" src={{article.urlToImage}} class="cover" [style.display]="(article.urlToImage != null) ? 'block' : 'none'"/>
             <div class="article-text">
-              <h4>{{article.title.slice(0, 65) + (article.title.length > 65 ? '...' : '')}}</h4>
+              <h4>{{(article.title ?? '').slice(0, 65) + ((article.title ?? '').length > 65 ? '...' : '')}}</h4>
               <p>{{(article.author ?? 'Anonymous').substring(0, 20)}} - {{article.publishedAt.toString().substring(0, 10)}}</p>
-              <p>{{article.description.slice(0, 65) + (article.description.length > 65 ? '...' : '')}}</p>
+              <p>{{(article.description ?? '').slice(0, 65) + ((article.description ?? '').length > 65 ? '...' : '')}}</p>
 
             </div>
           <!-- </div> -->
@@ -74,18 +75,25 @@
       <div class="pagination-container">
         <div class="pagination">
           <!-- <a href="#">&laquo;</a> -->
-          <a [routerLink]="['/']" [queryParams]="{ page: 1 }" [ngStyle]="{fontWeight: page$ == 1 ? 'bold' : 'normal'}">1</a>
-          <a [routerLink]="['/']" [queryParams]="{ page: 2 }" [ngStyle]="{fontWeight: page$ == 2 ? 'bold' : 'normal'}">2</a>
-          <a [routerLink]="['/']" [queryParams]="{ page: 3 }" [ngStyle]="{fontWeight: page$ == 3 ? 'bold' : 'normal'}">3</a>
-          <a [routerLink]="['/']" [queryParams]="{ page: 4 }" [ngStyle]="{fontWeight: page$ == 4 ? 'bold' : 'normal'}">4</a>
-          <a [routerLink]="['/']" [queryParams]="{ page: 5 }" [ngStyle]="{fontWeight: page$ == 5 ? 'bold' : 'normal'}">5</a>
-          <a [routerLink]="['/']" [queryParams]="{ page: 6 }" [ngStyle]="{fontWeight: page$ == 6 ? 'bold' : 'normal'}">6</a>
+          <a id='page-1'  [ngStyle]="{fontWeight: page$ == 1 ? 'bold' : 'normal'}" (click)="handlePageChange($event)">1</a>
+          <a id='page-2'  [ngStyle]="{fontWeight: page$ == 2 ? 'bold' : 'normal'}" (click)="handlePageChange($event)">2</a>
+          <a id='page-3'  [ngStyle]="{fontWeight: page$ == 3 ? 'bold' : 'normal'}" (click)="handlePageChange($event)">3</a>
+          <a id='page-4'  [ngStyle]="{fontWeight: page$ == 4 ? 'bold' : 'normal'}" (click)="handlePageChange($event)">4</a>
+          <a id='page-5'  [ngStyle]="{fontWeight: page$ == 5 ? 'bold' : 'normal'}" (click)="handlePageChange($event)">5</a>
+          <a id='page-6'  [ngStyle]="{fontWeight: page$ == 6 ? 'bold' : 'normal'}" (click)="handlePageChange($event)">6</a>
           <!-- <a href="#">&raquo;</a> -->
         </div>
       </div>
     </div>
   </div>
 </main>
+
+<!-- [routerLink]="['/']" [queryParams]="{ page: 1 }"
+[routerLink]="['/']" [queryParams]="{ page: 2 }"
+[routerLink]="['/']" [queryParams]="{ page: 3 }"
+[routerLink]="['/']" [queryParams]="{ page: 4 }"
+[routerLink]="['/']" [queryParams]="{ page: 5 }"
+[routerLink]="['/']" [queryParams]="{ page: 6 }" -->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
