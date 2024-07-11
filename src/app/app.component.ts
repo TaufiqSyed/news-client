@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
   queryString: string = '';
 
-  countrySelect: any;
+  countrySelect: any = ' ';
   countryOptions: IOption[] = countries.map((e) => ({ name: e, id: e }));
 
   categorySelect: any;
@@ -46,18 +46,15 @@ export class AppComponent implements OnInit {
     });
   }
 
-  fetchData() {
-    this.newsArticleService
-      .getNews({
-        query: this.queryString,
-        country: this.countrySelect.id,
-        category: this.categorySelect.id,
-        page: this.page$,
-        pageSize: 9,
-      })
-      .then((e) => {
-        this.newsArticles = e;
-      });
+  async fetchData() {
+    const e = await this.newsArticleService.getNews({
+      query: this.queryString,
+      country: this.countrySelect.id,
+      category: this.categorySelect.id,
+      page: this.page$,
+      pageSize: 9,
+    });
+    this.newsArticles = e;
   }
 
   handlePageChange(e: MouseEvent) {
@@ -68,6 +65,14 @@ export class AppComponent implements OnInit {
   }
 
   handleSearch(e: MouseEvent) {
+    if (
+      (this.countrySelect == null || this.countrySelect == ' ') &&
+      (this.categorySelect == null || this.categorySelect == ' ') &&
+      (this.queryString == null || this.queryString == '')
+    ) {
+      alert('Search is too vague - include more filters');
+      return;
+    }
     this.fetchData();
   }
 
@@ -75,6 +80,18 @@ export class AppComponent implements OnInit {
     this.countrySelect = { name: 'us', id: 'us' };
     this.categorySelect = ' ';
     this.fetchData();
+  }
+
+  compareFn = this._compareFn.bind(this);
+
+  // or
+  // compareFn = (a, b) => this._compareFn(a, b);
+
+  _compareFn(a: any, b: any) {
+    // Handle compare logic (eg check if unique ids are the same)
+    if (a == ' ' && b == ' ') return true;
+    if (a == null || b == null) return false;
+    return a.id === b.id;
   }
 
   title = 'client';

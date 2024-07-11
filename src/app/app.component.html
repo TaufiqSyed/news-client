@@ -24,8 +24,8 @@
           <input type="text" type="text" placeholder="Search..." [(ngModel)]='queryString'>
         </div>
         <div class="country-search search-filter">
-          <select name="country-select" id="country-select" [(ngModel)]='countrySelect'>
-            <option value=" ">Global</option>
+          <select name="country-select" id="country-select" [compareWith]="compareFn" [(ngModel)]='countrySelect'>
+            <option value=' ' >Global</option>
             <option *ngFor="let option of countryOptions" 
             [ngValue]="option"
             >
@@ -34,7 +34,7 @@
           </select>
         </div>
         <div class="category-search search-filter">
-          <select name="category-select" id="category-select" [(ngModel)]='categorySelect'>
+          <select name="category-select" id="category-select" [compareWith]="compareFn" [(ngModel)]='categorySelect'>
             <option value=" ">All Categories</option>
             <option *ngFor="let option of categoryOptions" 
             [ngValue]="option">

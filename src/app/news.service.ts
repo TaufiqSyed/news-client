@@ -21,7 +21,6 @@ export class NewsArticleService {
     page: number;
     pageSize: number;
   }) {
-    console.log('making an attempt...');
     let vals = [];
     vals.push(`page=${page}`);
     vals.push(`pageSize=${pageSize}`);
@@ -32,7 +31,6 @@ export class NewsArticleService {
     const x = await lastValueFrom(
       this.http.get(`http://localhost:8000/api/v1/news?${paramString}`)
     );
-    console.log(x);
     return (x as any)['articles'] as INewsArticle[];
   }
 }
