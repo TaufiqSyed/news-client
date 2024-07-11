@@ -109,16 +109,8 @@
           Search
         </button>
       </div>
-      <div class="news-articles">
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
-        <button class="grid-item"><p>hello</p></button>
+      <div class="news-articles" *ngFor="let article of newsArticles">
+        <button class="grid-item"><p>{{article.title}}</p></button>
       </div>
       <div class="pagination"></div>
     </div>

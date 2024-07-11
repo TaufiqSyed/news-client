@@ -11,11 +11,9 @@ export class NewsArticleService {
   async getNews() {
     console.log('making an attempt...');
     const x = await lastValueFrom(
-      this.http.get(
-        'http://localhost:8000/api/v1/news?q=Russia&pageSize=9&page=1'
-      )
+      this.http.get('http://localhost:8000/api/v1/news?q=UAE&pageSize=9&page=1')
     );
     console.log(x);
-    return x as any as INewsArticle[];
+    return (x as any)['articles'] as INewsArticle[];
   }
 }
