@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  ActivatedRoute,
-  Event,
-  ParamMap,
-  RouterModule,
-  RouterOutlet,
-} from '@angular/router';
+import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
 import { NewsArticleService } from './news.service';
 import { INewsArticle, IOption } from '../constants/interfaces';
 import { CommonModule } from '@angular/common';
-import { HttpParams } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { countries } from '../constants/countries';
 import { categories } from '../constants/categories';
