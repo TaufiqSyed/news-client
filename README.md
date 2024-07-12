@@ -2,6 +2,8 @@
 
 Built with newsapi.org
 
+![Uploading Screenshot 2024-07-12 160108.png…]()
+
 ## Set-up instructions
 
 1. Install the latest version of Node.js LTS
