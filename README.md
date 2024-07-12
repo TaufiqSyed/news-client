@@ -2,7 +2,8 @@
 
 Built with newsapi.org
 
-![Uploading Screenshot 2024-07-12 160108.png…]()
+<img width="951" alt="Screenshot 2024-07-12 160108" src="https://github.com/user-attachments/assets/acb30fda-af50-4f3f-8724-fd17b5f43b8d">
+
 
 ## Set-up instructions
 
