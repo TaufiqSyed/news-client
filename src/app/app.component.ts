@@ -76,9 +76,6 @@ export class AppComponent implements OnInit {
 
   compareFn = this._compareFn.bind(this);
 
-  // or
-  // compareFn = (a, b) => this._compareFn(a, b);
-
   _compareFn(a: any, b: any) {
     // Handle compare logic (eg check if unique ids are the same)
     if (a == ' ' && b == ' ') return true;
